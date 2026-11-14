@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+title: "DEBRIEF-space-mars: sixteen pre-registered learning cycles on Curiosity RAD surface dose at Gale Crater"
+message: "Cite this record by version. Contributors of record are listed as authors; each is credited for the cycles they contributed."
+type: dataset
+version: 0.1.0
+date-released: 2026-11-14
+license: CC-BY-4.0
+repository-code: https://github.com/Nervous-Machine/DEBRIEF-space-mars
+authors:
+  - family-names: Bennett
+    given-names: Heidi
+    affiliation: Nervous Machine
+    # the sixteen cycles and the operator audit (July–August 2026), with Claude Code as the operating agent

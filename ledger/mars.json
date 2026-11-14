@@ -1,0 +1,1666 @@
+{
+ "missions": [
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "title": "Mars RAD learning cycles",
+   "pods": [
+    "DEBRIEF-space-mars"
+   ],
+   "began": "2026-07-18",
+   "status": "active",
+   "record_quality": "full_ledger",
+   "record_note": "Sixteen cycles and one operator audit, each with a commit reference. The code of cycles one to nine is in the operator's working repository at the referenced commits; the code of cycles ten to sixteen is not, so their results stand as accepted and not certified until someone reruns them. Anyone may.",
+   "scope_limits": [
+    "One site: Gale Crater.",
+    "Dose from one instrument."
+   ],
+   "opening": {
+    "spoken": "The Mars RAD learning cycles, begun July eighteenth, twenty twenty-six."
+   },
+   "short_version": {
+    "spoken": "The system was asked to learn what drives the radiation dose measured by the Curiosity rover on the surface of Mars. It worked through sixteen cycles. Each cycle wrote down its question and its pass rule before touching the data. It assembled a full Mars year, about forty-three thousand real dose measurements across four seasons.\n\nIt learned four things worth knowing. First, dose at the surface falls during solar proton events, in every season. Second, solar activity pushes dose in opposite directions depending on the season. Third, in dust season the monthly average of solar activity matters where the daily value does not. Fourth, two bumps in the dose, in February and in May to June of 2024, line up with solar-wind disturbances arriving at Mars.\n\nTwo of those arrivals were flagged from the dose record first, and both were then found in independent spacecraft data on those dates. No catalog of observed arrivals covers Mars in 2024.\n\nWhat it could not do is establish certainty. The fit improved season by season, but the system does not yet claim to trust any single relationship. And the size of the bumps at Mars is still unexplained.\n\nWhat it needs from people is short and specific: dust data that has not been released, solar-wind measurements at Mars that will come from a future mission, a better filter on the existing spacecraft data, and a model that works hour by hour."
+   },
+   "what_happened": {
+    "spoken": "The system was asked to learn what drives the radiation dose measured by the Curiosity rover. It worked through sixteen cycles, each writing down its question and pass rule before touching the data."
+   },
+   "implications": {
+    "rely_on": [
+     {
+      "spoken": "the sign of the proton-event response at this site; the seasonal flip in the effect of solar activity.",
+      "finding_ids": [
+       "F1",
+       "F2"
+      ],
+      "audience": "briefing"
+     }
+    ],
+    "do_not_rely_on": [
+     {
+      "spoken": "any dose prediction as certified. Fit improved by seventeen to forty-three percent depending on season, and that is all that is claimed.",
+      "finding_ids": [],
+      "audience": "briefing"
+     }
+    ],
+    "stop": [
+     {
+      "spoken": "surface pressure as a stand-in for dust; daily-average solar-wind level as a driver; crude automatic arrival detectors.",
+      "finding_ids": [
+       "F7",
+       "F8"
+      ],
+      "audience": "briefing"
+     }
+    ],
+    "new": [
+     {
+      "spoken": "two solar-wind arrivals at Mars in 2024, February 16 to 17 and June 13, each seen in two instruments on the date, and neither in any catalog of observed arrivals because no such catalog covers Mars in 2024.",
+      "finding_ids": [
+       "F9"
+      ],
+      "audience": "briefing"
+     }
+    ]
+   },
+   "certainty_statement": {
+    "spoken": "No relationship reached certainty. Two explanations are open: the model is linear and daily while the physics arrives in events; and the tolerance was set from the median error, which a review on October 5, 2026 found makes certainty fall even for a correct model."
+   },
+   "sources": [
+    {
+     "kind": "ledger",
+     "ref": "run20260718.md"
+    },
+    {
+     "kind": "review",
+     "ref": "nm-gracefo-density RESULTS.md, 2026-10-05"
+    }
+   ]
+  }
+ ],
+ "cycles": [
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "cycle": 1,
+   "dated": "2026-07-18",
+   "preregistered": {
+    "question": "Do the seeded proton-event and shock edges hold? What is left over?",
+    "rule": "candidate admitted at partial correlation >= 0.10",
+    "predictions": [],
+    "commit": "31e30c3",
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "not_admitted",
+    "numbers": {
+     "sep_weight": -0.2407,
+     "f107_pcorr_hourly": 0.0861,
+     "bias_ugy_day_jul_to_nov": [
+      0.92,
+      12.56
+     ]
+    }
+   },
+   "spoken": "Cycle 1. The search space was committed before any data was fetched. About thirteen thousand eight hundred real dose measurements were loaded for the first window, May to November 2025. The seeded proton-event relationship came out with the opposite sign to what was expected: dose fell while proton flux was high. A growing over-prediction appeared in one season, from about one to about twelve and a half micrograys per day between July and November. Solar activity looked like the cause, but it fell just short of the admission rule, so it was not admitted. The gap was left open.",
+   "finding_ids": [
+    "F1"
+   ],
+   "gap_ids": [
+    "G1"
+   ],
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "cycle": 2,
+   "dated": "2026-07-18",
+   "preregistered": {
+    "question": "Does solar activity explain the aphelion gap at daily grain? Does it hold near perihelion?",
+    "rule": "daily re-scan registered before computing",
+    "predictions": [],
+    "commit": "e4271e1",
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "admitted",
+    "numbers": {
+     "f107_pcorr_daily": 0.2302,
+     "f107_weight_aphelion": -0.0769,
+     "bias_change_pct": -39,
+     "sep_weight_perihelion": -0.2713,
+     "f107_weight_perihelion": 0.1039
+    }
+   },
+   "spoken": "Cycle 2. A daily re-scan had been registered in advance. Solar activity passed the rule and was admitted. It lowered the bias by about thirty-nine percent in that season. A second window near perihelion, July to December 2024, added about fourteen thousand measurements. There the proton-event relationship was again negative, which contradicts an earlier benchmark from June that had it positive. Solar activity was admitted again, with the sign flipped: it raises dose near perihelion and lowers it near aphelion.",
+   "finding_ids": [
+    "F1",
+    "F2",
+    "F6"
+   ],
+   "gap_ids": [
+    "G1",
+    "G2"
+   ],
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "cycle": 3,
+   "dated": "2026-07-18",
+   "preregistered": {
+    "question": "Do event-conditioned forms carry what the daily index cannot?",
+    "rule": "five forms registered; top one admitted",
+    "predictions": [],
+    "commit": "38744e8",
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "admitted",
+    "numbers": {
+     "f107_quad_pcorr": 0.1676,
+     "f107_ma27_pcorr": -0.3528,
+     "sep_recovery_pcorr": 0.3341
+    }
+   },
+   "spoken": "Cycle 3. Five alternative forms were registered before being scored. Two were admitted with small weights and modest gains. The strongest signal, a recovery pattern after proton events, was runner-up and could not be admitted under the rule in force.",
+   "finding_ids": [],
+   "gap_ids": [
+    "G1",
+    "G2"
+   ],
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "cycle": 4,
+   "dated": "2026-07-18",
+   "preregistered": {
+    "question": "Does the recovery pattern after proton events hold, with the predicted sign?",
+    "rule": "pcorr > 0 and learned weight < 0, both registered",
+    "predictions": [],
+    "commit": "8437737",
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "confirmed",
+    "numbers": {
+     "pcorr": 0.3186,
+     "weight": -0.1649,
+     "bias_change_pct": -17
+    }
+   },
+   "spoken": "Cycle 4. That recovery pattern was registered with a predicted direction, then scored. Both predictions were confirmed. Bias fell by about seventeen percent.",
+   "finding_ids": [
+    "F3"
+   ],
+   "gap_ids": [
+    "G2"
+   ],
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "cycle": 5,
+   "dated": "2026-07-18",
+   "preregistered": {
+    "question": "Dust season: what do proton events do, and what is left?",
+    "rule": "no directional position on the sign; missing-sensor reading registered in advance",
+    "predictions": [],
+    "commit": "df8066d",
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "mixed",
+    "numbers": {
+     "sep_weight": -0.6686,
+     "f107_ma27_weight": -0.3228,
+     "bias_change_pct": -43
+    }
+   },
+   "spoken": "Cycle 5. A third window, January to July 2024, covered dust season and the big May 2024 solar storm. Proton events again lowered dose, the strongest of the three seasons. The remaining error here was not a steady ramp. It was two bumps: one in February, one in May and June. Every instantaneous candidate failed. The twenty-seven-day average of solar activity was admitted and gave the largest gain of the run, bias down about forty-three percent. The bumps survived. As registered in advance, this was read as a missing-sensor gap: the model has a dust mechanism but no dust measurement. The gap became a collection requirement.",
+   "finding_ids": [
+    "F1",
+    "F4"
+   ],
+   "gap_ids": [
+    "G3"
+   ],
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "cycle": 6,
+   "dated": "2026-07-18",
+   "preregistered": {
+    "question": "Does surface pressure, as a stand-in for dust shielding, explain the bumps?",
+    "rule": "pcorr > 0 and weight < 0",
+    "predictions": [],
+    "commit": "a10f6a9",
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "refuted",
+    "numbers": {
+     "pcorr": -0.0249
+    }
+   },
+   "spoken": "Cycle 6. The one dust-related sensor that could be obtained, surface pressure from the rover's weather station, was acquired and tested. It showed no relationship, and the predicted sign was wrong. The proxy was refuted. This tells us the bumps are not shaped like column mass.",
+   "finding_ids": [
+    "F7"
+   ],
+   "gap_ids": [
+    "G3"
+   ],
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "cycle": 7,
+   "dated": "2026-07-18",
+   "preregistered": {
+    "question": "Does true dust opacity explain the bumps?",
+    "rule": "availability branch declared",
+    "predictions": [],
+    "commit": "3a11566",
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "unavailable",
+    "numbers": {}
+   },
+   "spoken": "Cycle 7. The real dust-opacity maps for that Mars year are not publicly released. The test could not be run.",
+   "finding_ids": [],
+   "gap_ids": [
+    "G3"
+   ],
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "cycle": 8,
+   "dated": "2026-07-18",
+   "preregistered": {
+    "question": "What should ESCAPADE show?",
+    "rule": "pcorr > 0 and weight < 0, registered about two years ahead",
+    "predictions": [],
+    "commit": "amendment-c8-escapade.yaml",
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "corrected",
+    "numbers": {}
+   },
+   "spoken": "Cycle 8. A correction: cycle 7 had said nothing further could be tested. That was wrong. The MAVEN orbiter's archive covers the 2024 window. Also in this cycle, a prediction was registered for the ESCAPADE mission, about two years before its data will exist.",
+   "finding_ids": [
+    "F10"
+   ],
+   "gap_ids": [
+    "G3",
+    "G4"
+   ],
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "cycle": 9,
+   "dated": "2026-07-18",
+   "preregistered": {
+    "question": "Does solar wind at Mars, from the MAVEN archive, explain the bumps?",
+    "rule": "top driver admitted at pcorr >= 0.10",
+    "predictions": [],
+    "commit": "71b6f71",
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "not_admitted",
+    "numbers": {
+     "sw_speed_pcorr": 0.0787,
+     "usable_days": 174
+    }
+   },
+   "spoken": "Cycle 9. MAVEN solar-wind data was acquired, one hundred and seventy-four usable days. Daily solar-wind speed had the predicted sign but was too weak to pass the rule. Not admitted. The filter used to pick out clean solar wind was crude, and the ledger says so.",
+   "finding_ids": [
+    "F8"
+   ],
+   "gap_ids": [
+    "G3"
+   ],
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "cycle": "audit-2026-07-19",
+   "dated": "2026-07-19",
+   "preregistered": {
+    "question": "Are the stored certainty values corrupted?",
+    "rule": "operator spot-check",
+    "predictions": [],
+    "commit": null,
+    "before_data": false
+   },
+   "outcome": {
+    "verdict": "corrected",
+    "numbers": {}
+   },
+   "spoken": "Audit, July 19. The operator suspected the stored certainty values were corrupted. They were not. The stored history was a down-sampled display. One real finding came out of it: the internal certainty state can fall without limit, which is still an open design decision.",
+   "finding_ids": [
+    "F11"
+   ],
+   "gap_ids": [
+    "G6"
+   ],
+   "audience": "internal"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "cycle": 10,
+   "dated": "2026-08-08",
+   "preregistered": {
+    "question": "Does an event-shaped solar-wind form do better than the level form?",
+    "rule": "top form admitted at pcorr >= 0.10; earlier results must reproduce first",
+    "predictions": [],
+    "commit": "84f8ef8",
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "not_admitted",
+    "numbers": {
+     "top_pcorr": 0.0286
+    }
+   },
+   "spoken": "Cycle 10. An event-shaped version of the solar-wind test was run with crude automatic detectors. It scored weaker than the level version. Not admitted.",
+   "finding_ids": [
+    "F8"
+   ],
+   "gap_ids": [
+    "G3"
+   ],
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "cycle": 11,
+   "dated": "2026-08-08",
+   "preregistered": {
+    "question": "Does the rover's own optical-depth record cover the window?",
+    "rule": "availability branch declared",
+    "predictions": [],
+    "commit": "d2509c6",
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "unavailable",
+    "numbers": {
+     "record_ends_sol": 3953,
+     "sols_short": 110
+    }
+   },
+   "spoken": "Cycle 11. The rover's own optical-depth record was checked. Every public version ends about one hundred and ten sols before the window opens. Not testable yet.",
+   "finding_ids": [],
+   "gap_ids": [
+    "G3"
+   ],
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "cycle": 12,
+   "dated": "2026-08-08",
+   "preregistered": {
+    "question": "Do documented arrivals explain the bumps? Did something arrive around June 13 to 14?",
+    "rule": "two independent parts; circularity bar declared",
+    "predictions": [],
+    "commit": "dd7278b",
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "mixed",
+    "numbers": {
+     "lit_burden_pcorr": 0.1125,
+     "weight": 0.1947,
+     "june_crossing_utc": "2024-06-13T10"
+    }
+   },
+   "spoken": "Cycle 12. Using five arrivals documented in the literature, the event-burden form was admitted, the first admission on the solar-wind pathway. But its learned weight had the wrong sign, traced to a confound with a proton-spike in late May, so no relationship was kept. Separately, a prediction made from the dose record alone, that something arrived at Mars around June 13 to 14, was checked against MAVEN hourly data and confirmed: speed jumped at about ten hours universal time on June 13, 2024.",
+   "finding_ids": [
+    "F9"
+   ],
+   "gap_ids": [
+    "G3"
+   ],
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "cycle": 13,
+   "dated": "2026-08-08",
+   "preregistered": {
+    "question": "Does masking proton days fix the sign? Did something arrive around February 17?",
+    "rule": "both parts registered before execution",
+    "predictions": [],
+    "commit": "2528549",
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "mixed",
+    "numbers": {
+     "weight": 0.1947,
+     "feb_speed_crossing_utc": "2024-02-16T21"
+    }
+   },
+   "spoken": "Cycle 13. A mask built from Earth-side proton data failed to remove the confound, because Earth-side instruments barely saw the far-side event. A second arrival, around February 16 to 17, 2024, was confirmed in MAVEN data on both the pressure and the speed criteria.",
+   "finding_ids": [
+    "F9"
+   ],
+   "gap_ids": [
+    "G3",
+    "G5"
+   ],
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "cycle": 14,
+   "dated": "2026-08-08",
+   "preregistered": {
+    "question": "With a Mars-side mask and the two confirmed arrivals, does the event-burden form hold?",
+    "rule": "every prediction registered",
+    "predictions": [],
+    "commit": "27d1008",
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "learned",
+    "numbers": {
+     "r2_pcorr": 0.1923,
+     "weight": -0.2425,
+     "bias_change_pct_feb_may_jun": [
+      -40,
+      -65,
+      -64
+     ]
+    }
+   },
+   "spoken": "Cycle 14. With a Mars-side mask from published records, the weight came out negative as predicted. Using the two confirmed arrivals as well, the form ranked highest of the whole campaign and was admitted. In the bump months bias fell by forty to sixty-five percent; the other months were untouched.",
+   "finding_ids": [
+    "F5"
+   ],
+   "gap_ids": [
+    "G3"
+   ],
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "cycle": 15,
+   "dated": "2026-08-08",
+   "preregistered": {
+    "question": "What kind of arrivals were they?",
+    "rule": "criteria fixed before fetching magnetic-field data",
+    "predictions": [],
+    "commit": "f2c82e4",
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "classified",
+    "numbers": {}
+   },
+   "spoken": "Cycle 15. Magnetic-field data from MAVEN was added. Both classify as stream interfaces, not eruptions.",
+   "finding_ids": [
+    "F9"
+   ],
+   "gap_ids": [],
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "cycle": 16,
+   "dated": "2026-08-08",
+   "preregistered": {
+    "question": "Was the calibration period contaminated?",
+    "rule": "clean-baseline restatement registered",
+    "predictions": [],
+    "commit": "8650e24",
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "withdrawn",
+    "numbers": {
+     "baseline_shift_ugy_day": 0.005
+    }
+   },
+   "spoken": "Cycle 16. A suspicion that the calibration period was contaminated was registered, measured at five thousandths of a microgray per day, and withdrawn.",
+   "finding_ids": [
+    "F12"
+   ],
+   "gap_ids": [],
+   "audience": "briefing"
+  }
+ ],
+ "findings": [
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "finding_id": "F1",
+   "kind": "learned",
+   "spoken": "Dose falls during solar proton events at this site, in every season tested. The ledger's reading is that the dip in background cosmic rays outweighs the added solar particles here.",
+   "evidence": {
+    "numbers": {
+     "weights": [
+      -0.2407,
+      -0.2713,
+      -0.6686
+     ]
+    },
+    "cycles": [
+     1,
+     2,
+     5
+    ],
+    "confirmed_by": []
+   },
+   "standing": {
+    "status": "accepted",
+    "basis": "learned through the gate and repeated in three seasons",
+    "note": "the starting model expected the opposite sign"
+   },
+   "certainty": {
+    "earned": false,
+    "note": "the ledger records certainty collapsing on every relationship in this run"
+   },
+   "edge_refs": [],
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "finding_id": "F2",
+   "kind": "learned",
+   "spoken": "Solar activity acts with opposite signs by season: it lowers dose near aphelion and raises it near perihelion.",
+   "evidence": {
+    "numbers": {
+     "weights": [
+      -0.0769,
+      0.1039
+     ],
+     "bias_change_pct": [
+      -39,
+      -19
+     ]
+    },
+    "cycles": [
+     2
+    ],
+    "confirmed_by": []
+   },
+   "standing": {
+    "status": "accepted",
+    "basis": "admitted under a rule written down before the data",
+    "note": null
+   },
+   "certainty": {
+    "earned": false,
+    "note": "the ledger records certainty collapsing on every relationship in this run"
+   },
+   "edge_refs": [],
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "finding_id": "F3",
+   "kind": "learned",
+   "spoken": "A recovery pattern after proton events is real enough to have been predicted in advance and confirmed.",
+   "evidence": {
+    "numbers": {
+     "weight": -0.1649,
+     "bias_change_pct": -17
+    },
+    "cycles": [
+     4
+    ],
+    "confirmed_by": []
+   },
+   "standing": {
+    "status": "accepted",
+    "basis": "predicted in advance, both directions confirmed",
+    "note": null
+   },
+   "certainty": {
+    "earned": false,
+    "note": "the ledger records certainty collapsing on every relationship in this run"
+   },
+   "edge_refs": [],
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "finding_id": "F4",
+   "kind": "learned",
+   "spoken": "In dust season the twenty-seven-day average of solar activity carries what the daily number cannot.",
+   "evidence": {
+    "numbers": {
+     "weight": -0.3228,
+     "bias_change_pct": -43
+    },
+    "cycles": [
+     5
+    ],
+    "confirmed_by": []
+   },
+   "standing": {
+    "status": "accepted",
+    "basis": "admitted under a rule written down before the data",
+    "note": null
+   },
+   "certainty": {
+    "earned": false,
+    "note": "the ledger records certainty collapsing on every relationship in this run"
+   },
+   "edge_refs": [],
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "finding_id": "F5",
+   "kind": "learned",
+   "spoken": "An event-burden term over seven dated solar-wind arrivals accounts for much of the February, May and June bumps, and leaves the other months untouched.",
+   "evidence": {
+    "numbers": {
+     "weight": -0.2425,
+     "bias_change_pct_feb_may_jun": [
+      -40,
+      -65,
+      -64
+     ]
+    },
+    "cycles": [
+     14
+    ],
+    "confirmed_by": []
+   },
+   "standing": {
+    "status": "accepted",
+    "basis": "every registered prediction confirmed",
+    "note": null
+   },
+   "certainty": {
+    "earned": false,
+    "note": "the ledger records certainty collapsing on every relationship in this run"
+   },
+   "edge_refs": [],
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "finding_id": "F6",
+   "kind": "retracted",
+   "spoken": "An earlier benchmark from June had proton events raising dose at perihelion. The sixteen-cycle run found the opposite: the sign is negative in all three seasons.",
+   "evidence": {
+    "numbers": {
+     "old_weight": 0.188
+    },
+    "cycles": [
+     2,
+     5
+    ],
+    "confirmed_by": []
+   },
+   "standing": {
+    "status": "refuted",
+    "basis": "the earlier benchmark's sign did not hold in the sixteen-cycle run: negative in all three seasons",
+    "note": "what is refuted is the June claim"
+   },
+   "certainty": {
+    "earned": null,
+    "note": "not a learned relationship"
+   },
+   "edge_refs": [],
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "finding_id": "F7",
+   "kind": "ruled_out",
+   "spoken": "Surface pressure does not stand in for dust shielding. It showed no relationship and the predicted sign was wrong.",
+   "evidence": {
+    "numbers": {
+     "pcorr": -0.0249
+    },
+    "cycles": [
+     6
+    ],
+    "confirmed_by": []
+   },
+   "standing": {
+    "status": "refuted",
+    "basis": "failed its registered test; predicted sign wrong",
+    "note": null
+   },
+   "certainty": {
+    "earned": null,
+    "note": "not a learned relationship"
+   },
+   "edge_refs": [],
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "finding_id": "F8",
+   "kind": "ruled_out",
+   "spoken": "Daily solar-wind level, and crude automatic arrival detectors, are too weak to explain the bumps.",
+   "evidence": {
+    "numbers": {
+     "pcorr_level": 0.0787,
+     "pcorr_event": 0.0286
+    },
+    "cycles": [
+     9,
+     10
+    ],
+    "confirmed_by": []
+   },
+   "standing": {
+    "status": "refuted",
+    "basis": "failed its registered test",
+    "note": "right sign, too weak to pass the rule"
+   },
+   "certainty": {
+    "earned": null,
+    "note": "not a learned relationship"
+   },
+   "edge_refs": [],
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "finding_id": "F9",
+   "kind": "discovery",
+   "spoken": "Two solar-wind arrivals at Mars in 2024, February 16 to 17 and June 13, first flagged from the dose record and then found in MAVEN plasma and magnetometer data on those dates. Both classify as stream interfaces. No catalog of observed arrivals covers Mars in 2024.",
+   "evidence": {
+    "numbers": {
+     "dates": [
+      "2024-02-16/17",
+      "2024-06-13"
+     ]
+    },
+    "cycles": [
+     12,
+     13,
+     15
+    ],
+    "confirmed_by": [
+     "MAVEN solar-wind ion data",
+     "MAVEN magnetometer"
+    ]
+   },
+   "standing": {
+    "status": "accepted",
+    "basis": "both arrivals present in MAVEN plasma and magnetometer data on the published dates",
+    "note": "the dates are carried; the hour-level crossing times are not, since the arrival detector is not in the repository"
+   },
+   "certainty": {
+    "earned": null,
+    "note": "not a learned relationship"
+   },
+   "edge_refs": [],
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "finding_id": "F10",
+   "kind": "correction",
+   "spoken": "Cycle seven said nothing further could be tested. That was wrong: the MAVEN archive covers the 2024 window. Cycle eight corrected it.",
+   "evidence": {
+    "numbers": {},
+    "cycles": [
+     7,
+     8
+    ],
+    "confirmed_by": []
+   },
+   "standing": {
+    "status": "accepted",
+    "basis": "correction recorded in the ledger",
+    "note": null
+   },
+   "certainty": {
+    "earned": null,
+    "note": "not a learned relationship"
+   },
+   "edge_refs": [],
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "finding_id": "F11",
+   "kind": "correction",
+   "spoken": "An operator audit suspected corrupted certainty values. They were sound; the stored history was a down-sampled display.",
+   "evidence": {
+    "numbers": {},
+    "cycles": [
+     "audit-2026-07-19"
+    ],
+    "confirmed_by": []
+   },
+   "standing": {
+    "status": "accepted",
+    "basis": "verified against stored histories the same day",
+    "note": null
+   },
+   "certainty": {
+    "earned": null,
+    "note": "not a learned relationship"
+   },
+   "edge_refs": [],
+   "audience": "internal"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "finding_id": "F12",
+   "kind": "correction",
+   "spoken": "A suspected contamination of the calibration period was measured at five thousandths of a microgray per day and withdrawn.",
+   "evidence": {
+    "numbers": {
+     "shift_ugy_day": 0.005
+    },
+    "cycles": [
+     16
+    ],
+    "confirmed_by": []
+   },
+   "standing": {
+    "status": "accepted",
+    "basis": "measured under a registered restatement",
+    "note": null
+   },
+   "certainty": {
+    "earned": null,
+    "note": "not a learned relationship"
+   },
+   "edge_refs": [],
+   "audience": "briefing"
+  }
+ ],
+ "gaps": [
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "gap_id": "G1",
+   "title": "Growing over-prediction in the aphelion season",
+   "status": "in_cycle",
+   "opened_cycle": 1,
+   "priority": 5,
+   "history": [
+    {
+     "cycle": 1,
+     "hypothesis": "solar activity, hourly",
+     "before_data": true,
+     "result": "fell short of the rule"
+    },
+    {
+     "cycle": 2,
+     "hypothesis": "solar activity, daily",
+     "before_data": true,
+     "result": "admitted; gap reduced, November tail remains"
+    },
+    {
+     "cycle": 3,
+     "hypothesis": "squared form",
+     "before_data": true,
+     "result": "admitted, marginal"
+    }
+   ],
+   "closes_with": [
+    {
+     "what": "an hourly-grain model",
+     "kind": "research",
+     "external": false,
+     "who_could_act": "the modelling team"
+    }
+   ],
+   "spoken": "The aphelion gap is smaller but its November tail is still unexplained.",
+   "ask": {
+    "spoken": "An hourly-grain model. Who could act: the modelling team."
+   },
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "gap_id": "G2",
+   "title": "Growing over-prediction near perihelion",
+   "status": "in_cycle",
+   "opened_cycle": 2,
+   "priority": 6,
+   "history": [
+    {
+     "cycle": 2,
+     "hypothesis": "solar activity",
+     "before_data": true,
+     "result": "admitted with the opposite sign"
+    },
+    {
+     "cycle": 3,
+     "hypothesis": "twenty-seven-day average",
+     "before_data": true,
+     "result": "admitted, small"
+    },
+    {
+     "cycle": 4,
+     "hypothesis": "recovery after proton events",
+     "before_data": true,
+     "result": "confirmed"
+    }
+   ],
+   "closes_with": [
+    {
+     "what": "an hourly-grain model",
+     "kind": "research",
+     "external": false,
+     "who_could_act": "the modelling team"
+    }
+   ],
+   "spoken": "The perihelion gap is reduced by four terms and still open.",
+   "ask": {
+    "spoken": "An hourly-grain model. Who could act: the modelling team."
+   },
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "gap_id": "G3",
+   "title": "The two bumps in dust season, February and May to June 2024",
+   "status": "immovable",
+   "opened_cycle": 5,
+   "priority": 1,
+   "history": [
+    {
+     "cycle": 5,
+     "hypothesis": "missing dust sensor",
+     "before_data": true,
+     "result": "became a collection requirement"
+    },
+    {
+     "cycle": 6,
+     "hypothesis": "surface pressure as a proxy",
+     "before_data": true,
+     "result": "refuted"
+    },
+    {
+     "cycle": 7,
+     "hypothesis": "true dust opacity",
+     "before_data": true,
+     "result": "data not released"
+    },
+    {
+     "cycle": 9,
+     "hypothesis": "solar wind level",
+     "before_data": true,
+     "result": "not admitted"
+    },
+    {
+     "cycle": 10,
+     "hypothesis": "solar wind events, crude detectors",
+     "before_data": true,
+     "result": "not admitted"
+    },
+    {
+     "cycle": 11,
+     "hypothesis": "rover optical depth",
+     "before_data": true,
+     "result": "record ends 110 sols early"
+    },
+    {
+     "cycle": 12,
+     "hypothesis": "documented arrivals",
+     "before_data": true,
+     "result": "admitted; wrong sign from a confound"
+    },
+    {
+     "cycle": 14,
+     "hypothesis": "arrivals with a Mars-side mask",
+     "before_data": true,
+     "result": "learned with the predicted sign"
+    }
+   ],
+   "closes_with": [
+    {
+     "what": "dust-opacity maps for Mars Year 37, or the rover optical-depth record extended past sol 3953",
+     "kind": "data_release",
+     "external": true,
+     "who_could_act": "someone who can reach the record keepers"
+    },
+    {
+     "what": "solar wind measured at Mars (ESCAPADE, about 2028)",
+     "kind": "measurement",
+     "external": true,
+     "who_could_act": "the ESCAPADE team; an outreach note is drafted and not sent"
+    },
+    {
+     "what": "a research-grade filter for MAVEN's upstream solar wind",
+     "kind": "research",
+     "external": true,
+     "who_could_act": "a heliophysics collaborator"
+    }
+   ],
+   "spoken": "The timing of the bumps has an account. Their size at Mars is unmeasured, and whether dust plays a part could not be tested.",
+   "ask": {
+    "spoken": "Dust-opacity maps for Mars Year 37, or the rover optical-depth record extended past sol 3953. This is outside our reach. Who could act: someone who can reach the record keepers. Solar wind measured at Mars (ESCAPADE, about 2028). This is outside our reach. Who could act: the ESCAPADE team; an outreach note is drafted and not sent. A research-grade filter for MAVEN's upstream solar wind. This is outside our reach. Who could act: a heliophysics collaborator."
+   },
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "gap_id": "G4",
+   "title": "A prediction waiting on a mission that has not flown",
+   "status": "proposed",
+   "opened_cycle": 8,
+   "priority": 3,
+   "history": [
+    {
+     "cycle": 8,
+     "hypothesis": "ESCAPADE drivers against the dose residual",
+     "before_data": true,
+     "result": "registered about two years ahead; scorable around 2028"
+    }
+   ],
+   "closes_with": [
+    {
+     "what": "ESCAPADE science data",
+     "kind": "measurement",
+     "external": true,
+     "who_could_act": "the ESCAPADE team"
+    }
+   ],
+   "spoken": "A prediction for ESCAPADE is registered and waiting.",
+   "ask": {
+    "spoken": "ESCAPADE science data. This is outside our reach. Who could act: the ESCAPADE team."
+   },
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "gap_id": "G5",
+   "title": "Event terms cannot be learned at daily grain without masking",
+   "status": "in_cycle",
+   "opened_cycle": 13,
+   "priority": 4,
+   "history": [
+    {
+     "cycle": 13,
+     "hypothesis": "Earth-side mask",
+     "before_data": true,
+     "result": "blind to far-side events"
+    },
+    {
+     "cycle": 14,
+     "hypothesis": "Mars-side mask from published records",
+     "before_data": true,
+     "result": "worked"
+    }
+   ],
+   "closes_with": [
+    {
+     "what": "a model that works hour by hour",
+     "kind": "research",
+     "external": false,
+     "who_could_act": "the modelling team"
+    }
+   ],
+   "spoken": "The daily model needs masks to learn event terms. An hourly model would not.",
+   "ask": {
+    "spoken": "A model that works hour by hour. Who could act: the modelling team."
+   },
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "gap_id": "G6",
+   "title": "Certainty was not established on any relationship",
+   "status": "in_cycle",
+   "opened_cycle": 1,
+   "priority": 2,
+   "history": [
+    {
+     "cycle": "audit-2026-07-19",
+     "hypothesis": "stored values corrupted",
+     "before_data": false,
+     "result": "not corrupted; the certainty state has no lower limit"
+    },
+    {
+     "cycle": "review-2026-10-05",
+     "hypothesis": "tolerance set from the median error",
+     "before_data": false,
+     "result": "this setting makes certainty fall even for a correct model"
+    }
+   ],
+   "closes_with": [
+    {
+     "what": "re-score the run with a corrected tolerance",
+     "kind": "rerun",
+     "external": false,
+     "who_could_act": "Nervous Machine"
+    },
+    {
+     "what": "decide whether the certainty state needs a floor",
+     "kind": "decision",
+     "external": false,
+     "who_could_act": "Nervous Machine"
+    }
+   ],
+   "spoken": "No relationship reached certainty. Two explanations are open: the model is linear and daily while the physics arrives in events; and the tolerance was set from the median error, which a review on October 5, 2026 found makes certainty fall even for a correct model.",
+   "ask": {
+    "spoken": "Re-score the run with a corrected tolerance. Who could act: Nervous Machine. Decide whether the certainty state needs a floor. Who could act: Nervous Machine."
+   },
+   "audience": "internal"
+  }
+ ],
+ "anomalies": [
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "anomaly_id": "A1",
+   "when": "2024-02-16/17",
+   "node": "surface_dose_rate",
+   "spoken": "An arrival at Mars around February 16 to 17, 2024, flagged by the system's own arrival register and confirmed in MAVEN data on both the pressure and the speed criteria.",
+   "status": "confirmed",
+   "urgency": "daily",
+   "from_trusted_node": "unknown",
+   "evidence": {
+    "cycle": 13
+   },
+   "gap_id": "G3",
+   "alert": {
+    "sent": false
+   }
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "anomaly_id": "A2",
+   "when": "2024-06-13",
+   "node": "surface_dose_rate",
+   "spoken": "An arrival at Mars on June 13, 2024, inferred from the dose record alone and then confirmed in MAVEN hourly data: speed jumped at about ten hours universal time.",
+   "status": "confirmed",
+   "urgency": "daily",
+   "from_trusted_node": "unknown",
+   "evidence": {
+    "cycle": 12
+   },
+   "gap_id": "G3",
+   "alert": {
+    "sent": false
+   }
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "anomaly_id": "A3",
+   "when": "2024-02 and 2024-05/06",
+   "node": "surface_dose_rate",
+   "spoken": "Two bumps in dose in dust season that survived every public data source.",
+   "status": "open",
+   "urgency": "daily",
+   "from_trusted_node": "unknown",
+   "evidence": {
+    "cycle": 5
+   },
+   "gap_id": "G3",
+   "alert": {
+    "sent": false
+   }
+  }
+ ],
+ "background": [
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "term": "Forbush decrease",
+   "also_called": [],
+   "spoken": "When a large disturbance from the Sun sweeps past, its tangled magnetic field acts like a snowplough and pushes aside some of the cosmic rays that normally arrive from the galaxy. For a few days the background radiation drops, then slowly recovers. Named after Scott Forbush, who noticed it in the 1930s.",
+   "source": "general",
+   "mission_tie": {
+    "spoken": "it is the ledger's explanation for why dose fell during proton events."
+   }
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "term": "Solar energetic particles",
+   "also_called": [],
+   "spoken": "Bursts of fast protons thrown out by solar flares and eruptions. They add radiation. At the Martian surface the atmosphere stops the lower-energy ones.",
+   "source": "general"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "term": "Galactic cosmic rays",
+   "also_called": [],
+   "spoken": "A steady drizzle of very energetic particles from outside the solar system. They are the main source of dose on the surface of Mars. When the Sun is more active, fewer get in.",
+   "source": "general"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "term": "F ten point seven",
+   "also_called": [],
+   "spoken": "The Sun's radio brightness at a wavelength of ten point seven centimetres, measured daily on Earth. It is a standard yardstick for how active the Sun is.",
+   "source": "general"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "term": "Solar longitude",
+   "also_called": [],
+   "spoken": "Where Mars is in its orbit, in degrees, which sets the season. The run divides the year into four quarters. Dust season is in the second half of the year. The ledger calls the third quarter the dust-season window and the last quarter the perihelion window.",
+   "source": "general"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "term": "Curiosity's RAD",
+   "also_called": [],
+   "spoken": "The Radiation Assessment Detector on the rover. It is the dose measurement used here.",
+   "source": "general"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "term": "MAVEN",
+   "also_called": [],
+   "spoken": "A NASA orbiter at Mars that measured the solar wind and magnetic field. The ledger says its public archive runs to December 2025.",
+   "source": "general"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "term": "ESCAPADE",
+   "also_called": [],
+   "spoken": "A pair of small spacecraft to study the solar wind at Mars. The ledger gives the science phase as about 2028.",
+   "source": "general"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "term": "Stream interface",
+   "also_called": [],
+   "spoken": "Where a fast stream of solar wind catches up with slower wind ahead of it. The gas piles up and the magnetic field is squeezed. Because the pattern rotates with the Sun it can come round again about every twenty-seven days.",
+   "source": "general"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "term": "Dust opacity",
+   "also_called": [],
+   "spoken": "How much sunlight the dust in the air blocks. It is not the same as how much air is overhead, which is what surface pressure tells you.",
+   "source": "general"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "term": "Partial correlation",
+   "also_called": [],
+   "spoken": "A way of asking whether two things move together after removing what is already explained by the drivers in the model. The run admitted a candidate only at zero point one or above.",
+   "source": "general"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "term": "Pre-registration",
+   "also_called": [],
+   "spoken": "Writing down the question and the pass rule, with a date, before looking at the data.",
+   "source": "general"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "mars-rad-2026-07",
+   "pod": "DEBRIEF-space-mars",
+   "provenance": {
+    "source": "run20260718.md (16-cycle ledger)"
+   },
+   "term": "Sol",
+   "also_called": [],
+   "spoken": "One Martian day, about twenty-four hours and forty minutes.",
+   "source": "general"
+  }
+ ],
+ "sessions": []
+}
