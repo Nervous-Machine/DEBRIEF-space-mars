@@ -12,7 +12,7 @@ What it needs from people is short and specific: dust data that has not been rel
 
 _Rendered from the briefing record. Items marked internal in the ledger (how the framework works, the state of the record) stay in `ledger.json` and are not shown here._
 
-Record quality: full ledger. Sixteen cycles and one operator audit, each with a commit reference. The code of cycles one to nine is in the operator's working repository at the referenced commits; the code of cycles ten to sixteen is not, so their results stand as accepted and not certified until someone reruns them. Anyone may.
+Record quality: full ledger. Sixteen cycles and one operator audit, each with a commit reference. The code of cycles one to nine is in the operator's working repository at the referenced commits; the code of cycles ten to sixteen is not, so their results stand as accepted and not certified until the cycles run again.
 
 **Standing.** Certified 0. Accepted 8. Refuted 3. Open gaps 5. An open gap is an input or question nobody has settled; it is not a finding and has no standing.
 

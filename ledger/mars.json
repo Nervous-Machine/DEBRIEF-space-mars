@@ -16,7 +16,7 @@
    "began": "2026-07-18",
    "status": "active",
    "record_quality": "full_ledger",
-   "record_note": "Sixteen cycles and one operator audit, each with a commit reference. The code of cycles one to nine is in the operator's working repository at the referenced commits; the code of cycles ten to sixteen is not, so their results stand as accepted and not certified until someone reruns them. Anyone may.",
+   "record_note": "Sixteen cycles and one operator audit, each with a commit reference. The code of cycles one to nine is in the operator's working repository at the referenced commits; the code of cycles ten to sixteen is not, so their results stand as accepted and not certified until the cycles run again.",
    "scope_limits": [
     "One site: Gale Crater.",
     "Dose from one instrument."
