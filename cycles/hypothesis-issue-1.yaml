@@ -1,0 +1,26 @@
+# hypothesis cycle from issue #1; answers copied verbatim and hashed; the hash is the submitter's pin
+kind: hypothesis
+cycle: "hyp-1"
+dated: "2026-11-15"
+by: "Nervous Machine (form test)"
+github: "heidiEC"
+hypothesis: "TEST ONLY. The two dust-season dose bumps in 2024 follow regional dust storms by two to four days."
+signals: "MCS column dust opacity at Gale rising by more than 0.3 within four days before each bump."
+endpoints: "https://atmos.nmsu.edu/data_and_services/atmospheres_data/MARS/mcs.html"
+measurements_needed: ""
+bears_on: "DEBRIEF-space-mars, G3 (the two dust-season bumps)"
+pinned:
+  sha256: "d623f73d8f3108ef866c56033b25194b19c90b84d74ece5f5d1037c3db16a530"
+  over: "hypothesis, signals, endpoints, measurements_needed; each stripped, joined by newlines, UTF-8"
+  issue_url: "https://github.com/Nervous-Machine/DEBRIEF-space-mars/issues/1"
+  submitted_at: "2026-11-15T00:25:04Z"
+preregistered:
+  question: "TEST ONLY."
+  rule: "the signals named by the submitter: MCS column dust opacity at Gale rising by more than 0.3 within four days before each bump."
+  before_data: true
+outcome:
+  verdict: admitted
+  numbers: {signals_have_public_endpoint: true}
+spoken: "Nervous Machine (form test) registered a hypothesis: TEST ONLY. Its signals are public, so a cycle can be run on it."
+finding_ids: []
+gap_ids: ["G3"]
